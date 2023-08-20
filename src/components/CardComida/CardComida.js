@@ -11,12 +11,10 @@ export class CardComida extends Component {
                 <Card.Img variant="top" src={this.props.produto.foto} width={this.props.largura} height={this.props.altura} />
                 <Card.Body>
                     <Card.Title>{this.props.produto.titulo}</Card.Title>
-                    <Card.Text>
-                        <div class="d-flex flex-row mb-2">
-                            <div class="p-2 flex-fill text-start valor"><NumericFormat value={this.props.produto.valor} displayType='text' decimalScale={2} prefix='R$' decimalSeparator=',' fixedDecimalScale /></div>
-                            <div class="p-2 flex-fill text-end"><Button variant="primary"><i class="fa-regular fa-plus"></i></Button></div>
-                        </div>
-                    </Card.Text>
+                    <div className="d-flex flex-row mb-2">
+                        <div className="p-2 flex-fill text-start valor"><NumericFormat value={this.props.produto.valor} displayType='text' decimalScale={2} prefix='R$' decimalSeparator=',' fixedDecimalScale /></div>
+                        <div className="p-2 flex-fill text-end"><Button variant="primary" onClick={() => this.props.callback({item: this.props.produto })}><i className="fa-regular fa-plus"></i></Button></div>
+                    </div>
                 </Card.Body>
             </Card>
         );
